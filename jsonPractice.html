@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Json TUTO</title>
+</head>
+<body>
+    
+<ul id="persons"> </ul>
+
+
+
+
+
+
+
+
+    <script>
+        
+     
+   /*  var  person = {"name":"Joe", "Edad":21,"Soletero":true, "direccion": {"calle":"libertad", "av":"Saman"}};
+//console.log(person.Edad);
+
+var persons = [
+
+            {"name":"Joe", "Edad":21,"Soletero":true, "direccion": {"calle":"libertad", "av":"Saman"}},
+            {"name":"jesus", "Edad":31,"Soletero":false, "direccion": {"calle":"gomora", "av":"Saman"}},
+            {"name":"javier", "Edad":2,"Soletero":true, "direccion": {"calle":"libertad", "av":"Saman"}},
+            {"name":"angela", "Edad":25,"Soletero":true, "direccion": {"calle":"budapest", "av":"Grunt"}},
+            {"name":"maria", "Edad":25,"Soletero":true, "direccion": {"calle":"budapest", "av":"Test"}}
+
+
+]
+//console.log(persons[2].name);
+
+
+//para recorrer un array de json lo vamos hacer con un for 
+
+var salida= '';
+for (i = 0; i < persons.length; i++){
+   // console.log(persons[i]);
+   //console.log(persons[i].name);
+
+   // asi se puede hacer solo que es muy dificil de leer el codigo 
+   //salida += '<li>'+ persons[i].Edad +' Tiene '+ persons[i].name + '</li>';
+
+   // usaremos entonces un variable de interpolacion :
+
+   salida += `<li>${persons[i].name} Tiene ${persons[i].Edad} Edad </li>`;
+}
+
+document.getElementById('persons').innerHTML = salida;
+ */
+
+// aca voy a simular que es un servidor el que me da la respuesta 
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       //document.getElementById("demo").innerHTML = xhttp.responseText;
+
+       // para mostrarlo por pantalla vamos hacerlo siguiente:
+       
+       //var response =  xhttp.responseText; Asi lo que hacemos es pasar un string pero vamos abajo a pasar un json para poder recorerlo
+
+       var response =  JSON.parse(xhttp.responseText);
+       //console.log(response);
+       var persons =  response.persons;
+
+       var salida= '';
+for (i = 0; i < persons.length; i++){
+  
+   // usaremos entonces un variable de interpolacion :
+
+   salida += `<li>${persons[i].name} Tiene ${persons[i].Edad} Edad </li>`;
+}
+
+document.getElementById('persons').innerHTML = salida;
+    }
+};
+xhttp.open("GET", "persons.json", true);
+xhttp.send();
+
+
+
+</script>
+</body>
+</html>

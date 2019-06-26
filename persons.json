@@ -1,0 +1,14 @@
+{
+    "persons": [
+
+        {"name":"Joe", "Edad":21,"Soletero":true, "direccion": {"calle":"libertad", "av":"Saman"}},
+        {"name":"jesus", "Edad":31,"Soletero":false, "direccion": {"calle":"gomora", "av":"Saman"}},
+        {"name":"javier", "Edad":2,"Soletero":true, "direccion": {"calle":"libertad", "av":"Saman"}},
+        {"name":"angela", "Edad":25,"Soletero":true, "direccion": {"calle":"budapest", "av":"Grunt"}},
+        {"name":"maria", "Edad":25,"Soletero":true, "direccion": {"calle":"budapest", "av":"Test"}},
+        {"name":"desmo", "Edad":31,"Soletero":false, "direccion": {"calle":"gomora", "av":"Saman"}}
+
+
+]
+
+}
